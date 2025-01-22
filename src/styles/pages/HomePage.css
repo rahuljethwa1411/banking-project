@@ -1,0 +1,74 @@
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.middle1 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1500px;
+  margin-bottom: 100px;
+}
+
+.card-display1 {
+  flex: 1.2;
+  padding-right: 0px;
+  padding-left: 450px;
+}
+.button-list1 {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.button-list {
+  margin-bottom: 20px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.bottom-left-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.bottom-left-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-right {
+  margin-top: 50px;
+}
+
+.credit-apply-div {
+  margin: 20px;
+}
+
+.credit-apply-btn {
+  padding: 30px;
+  width: 450px;
+  background-color: #3498db;
+}
+
+.credit-apply-btn:hover {
+  /* background-attachment: fixed; */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out 0.5s;
+  cursor: pointer;
+}

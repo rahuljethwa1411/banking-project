@@ -1,0 +1,25 @@
+/* Add this to your CSS file (e.g., CreditCardFeature.css) */
+.CreditCardPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height to center vertically */
+  text-align: center; /* Center text inside the container */
+}
+
+.card-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between card and buttons */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between Previous and Next buttons */
+}
+
+.credit-card {
+  margin: 0 auto; /* Center the card horizontally */
+}
