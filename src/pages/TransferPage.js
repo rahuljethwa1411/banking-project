@@ -4,6 +4,7 @@ import { useAuth } from "../misc/AuthContext";
 import { bankingApi } from "../misc/BankingApi";
 import { handleLogError } from "../misc/Helpers";
 import { Navigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const TransferPage = () => {
   const Auth = useAuth();
@@ -56,7 +57,9 @@ const TransferPage = () => {
         );
         console.log(response.data);
         setErrorMessage("");
-        setSuccessMessage("Successfully transferred");
+        const notify = () => toast.success(`Successfully transferred money`);
+        notify();
+        // setSuccessMessage("Successfully transferred");
         setAccountNumber("");
         setAmount("");
       } catch (error) {

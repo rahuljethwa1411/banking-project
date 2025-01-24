@@ -2,6 +2,7 @@ import React, { useState, useCallback, memo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { handleLogError } from "../misc/Helpers";
 import { bankingApi } from "../misc/BankingApi";
+import toast from "react-hot-toast";
 
 const Deposit = memo(({ bankAccountId, user }) => {
   const [amount, setAmount] = useState(0);
@@ -14,12 +15,16 @@ const Deposit = memo(({ bankAccountId, user }) => {
       const response = await bankingApi.deposit(bankAccountId, amount, user);
       console.log(response.data);
       setErrorMessage("");
-      setSuccessMessage("Successfully deposited money");
+      const notify = () => toast.success(`Successfully deposited money`);
+      notify();
+      // setSuccessMessage("Successfully deposited money");
       setAmount(0);
     } catch (error) {
       handleLogError(error);
       setSuccessMessage("");
-      setErrorMessage(error.response.data.message);
+      const notify = () => toast.error("Please enter the amount");
+      notify();
+      // setErrorMessage(error.response.data.message);
       setAmount(0);
     }
   }, [bankAccountId, amount, user]);

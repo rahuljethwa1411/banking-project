@@ -4,12 +4,12 @@ import CreditCardFeature from "./pages/CreditCardFeature";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import WithdrawDeposit from "./pages/WithdrawDeposit";
-import RepaymentPage from "./pages/RepaymentPage";
 import TransferPage from "./pages/TransferPage";
 import ApplicationPage from './pages/ApplicationPage';
 import BaseLayout from "./components/BaseLayout";
-import BillPage from "./pages/BillPage";
+import AdminDashboard from "./pages/AdminDashboard"; // Import the AdminDashboard component
 import { AuthProvider } from "./misc/AuthContext";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -25,13 +25,14 @@ function App() {
               <Route path="/credit-cards" element={<CreditCardFeature />} />
               <Route path="/withdraw-deposit" element={<WithdrawDeposit />} />
               <Route path="/transfer" element={<TransferPage />} />
-              <Route path="/repayment" element={<RepaymentPage />} />
               <Route path="/application" element={<ApplicationPage />} />
-              <Route path='/bill' element={<BillPage />} />
+              {/* Add the AdminDashboard route */}
+              <Route path="/admin-dashboard" element={<AdminDashboard />} />
             </Route>
           </Routes>
         </Router>
       </AuthProvider>
+      <Toaster />
     </div>
   );
 }

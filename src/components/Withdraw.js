@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { bankingApi } from "../misc/BankingApi";
 import { handleLogError } from "../misc/Helpers";
+import toast from "react-hot-toast";
 
 function Withdraw({ bankAccountId, user }) {
   const [amount, setAmount] = useState(0);
@@ -14,12 +15,16 @@ function Withdraw({ bankAccountId, user }) {
       const response = await bankingApi.withdraw(bankAccountId, amount, user);
       console.log(response.data);
       setErrorMessage("");
-      setSuccessMessage("Successfully withdrawn money");
+      const notify = () => toast.success(`Successfully withdrawn money`);
+      notify();
+      // setSuccessMessage("Successfully withdrawn money");
       setAmount(0);
     } catch (error) {
       handleLogError(error);
       setSuccessMessage("");
-      setErrorMessage(error.response.data.message);
+      const notify = () => toast.error("Please enter the amount");
+      notify();
+      // setErrorMessage(error.response.data.message);
       setAmount(0);
     }
   };

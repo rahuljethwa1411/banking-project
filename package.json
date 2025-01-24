@@ -20,6 +20,7 @@
     "react-credit-cards-2": "^1.0.1",
     "react-datepicker": "^4.25.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.5.1",
     "react-router-dom": "^6.21.1",
     "react-scripts": "^5.0.1",
     "react-spring": "^9.7.3",

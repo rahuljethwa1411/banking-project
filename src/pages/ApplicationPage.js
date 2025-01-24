@@ -84,6 +84,14 @@ const Application = () => {
         return <Navigate to='/home' />
     };
 
+    // Check if the user is an admin
+    const isAdmin = userDb && userDb.role === "admin";
+
+    // Redirect or hide the form if the user is an admin
+    if (isAdmin) {
+        return <Navigate to='/admin-dashboard' />; // Redirect to admin dashboard or another appropriate page
+    }
+
     return (userDb &&
         <div className="Application-Page">
             <div className='top'>

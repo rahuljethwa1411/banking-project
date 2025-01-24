@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/js/dist/dropdown";
 import "../styles/components/Navbar.css";
-
 import { useAuth } from "../misc/AuthContext";
 import { bankingApi } from "../misc/BankingApi";
 import { handleLogError } from "../misc/Helpers";
@@ -18,16 +16,15 @@ const Navbar = () => {
   const [userDb, setUserDb] = useState(null);
 
   useEffect(() => {
-    loadUserDb()
+    loadUserDb();
   }, []);
 
   const loadUserDb = async () => {
     try {
-      const response = await bankingApi.getUser(user)
-      // console.log("Navbar >>>", response.data)
-      setUserDb(response.data)
+      const response = await bankingApi.getUser(user);
+      setUserDb(response.data);
     } catch (error) {
-      handleLogError(error)
+      handleLogError(error);
     }
   };
 
@@ -35,8 +32,24 @@ const Navbar = () => {
     userLogout();
   };
 
+  // Check if the user is an admin
+  const isAdmin = userDb && userDb.role === "ADMIN";
+
+  // If the user is an admin, show only a small logout button
+  if (isAdmin) {
+    return (
+      <div className="admin-logout-container">
+        <button className="btn btn-sm btn-danger" onClick={logout}>
+          <i className="bi bi-box-arrow-right"></i> Logout
+        </button>
+      </div>
+    );
+  }
+
+  // For non-admin users, show the full sidebar
   return (
-    isLoggedIn && userDb && (
+    isLoggedIn &&
+    userDb && (
       <div className="container-fluid">
         <div className="bg-dark col-auto col-md-12 min-vh-100 d-flex justify-content-between flex-column">
           <div>
@@ -95,17 +108,6 @@ const Navbar = () => {
                   <span className="ms-3">Transfer</span>
                 </NavLink>
               </li>
-
-              {/* <li className="nav-item my-1">
-                <NavLink
-                  className="nav-link text-white fs-5"
-                  to="/repayment"
-                  activeclassname="active"
-                >
-                  <i className="bi bi-receipt"></i>
-                  <span className="ms-3">Bill Payment</span>
-                </NavLink>
-              </li> */}
             </ul>
           </div>
           <div className="dropdown open">

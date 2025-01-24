@@ -7,6 +7,7 @@ import { useAuth } from "../misc/AuthContext";
 import { bankingApi } from "../misc/BankingApi";
 import { handleLogError } from "../misc/Helpers";
 import { Navigate } from "react-router-dom";
+// import toast from "react-hot-toast";
 
 export default function WithdrawDeposit() {
   const [activeTab, setActiveTab] = useState("withdraw");
@@ -14,6 +15,8 @@ export default function WithdrawDeposit() {
   const user = Auth.getUser();
   const isLoggedIn = Auth.userIsAuthenticated();
   const [userDb, setUserDb] = useState(null);
+ 
+  // const notify = () => toast.success('Successfully ');
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -42,7 +45,7 @@ export default function WithdrawDeposit() {
     userDb && (
       <div className="withdraw-deposit-page">
         <div className="container mt-5 ">
-          <div className="row">
+          <div className="row" style={{marginTop:'40px'}}>
             <div className="col-12 text-center mb-4">
               <div className="btn-group">
                 <button
