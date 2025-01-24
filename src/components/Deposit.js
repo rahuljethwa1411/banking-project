@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, memo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { handleLogError } from "../misc/Helpers";
 import { bankingApi } from "../misc/BankingApi";
 
-function Deposit({ bankAccountId, user }) {
+const Deposit = memo(({ bankAccountId, user }) => {
   const [amount, setAmount] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const handleDeposit = async (e) => {
+  const handleDeposit = useCallback(async (e) => {
     e.preventDefault();
     try {
       const response = await bankingApi.deposit(bankAccountId, amount, user);
@@ -22,11 +22,11 @@ function Deposit({ bankAccountId, user }) {
       setErrorMessage(error.response.data.message);
       setAmount(0);
     }
-  };
+  }, [bankAccountId, amount, user]);
 
-  const handleAmountButtonClick = (buttonAmount) => {
+  const handleAmountButtonClick = useCallback((buttonAmount) => {
     setAmount(buttonAmount);
-  };
+  }, []);
 
   return (
     <form className="row justify-content-center" onSubmit={handleDeposit}>
@@ -61,7 +61,7 @@ function Deposit({ bankAccountId, user }) {
             200
           </button>
           <button
-            className="btn btn-outline-primary rounded  me-2"
+            className="btn btn-outline-primary rounded me-2"
             type="button"
             onClick={() => handleAmountButtonClick(500)}
           >
@@ -79,5 +79,6 @@ function Deposit({ bankAccountId, user }) {
       </div>
     </form>
   );
-}
+});
+
 export default Deposit;

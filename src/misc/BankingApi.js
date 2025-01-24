@@ -16,7 +16,9 @@ export const bankingApi = {
   getAllBill,
   payBill
 }
-
+const instance = axios.create({
+  baseURL: "http://localhost:8080"
+})
 // -- User Management
 function authenticate(username, password) {
   return instance.post('/api/v1/login', { username, password }, {
@@ -136,9 +138,6 @@ function payBill(creditCardId, bankAccountNumber, amount, user) {
 }
 
 // -- Axios
-const instance = axios.create({
-  baseURL: "http://localhost:8080"
-})
 
 // -- Helper functions
 

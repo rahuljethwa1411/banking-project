@@ -96,7 +96,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
 
-              <li className="nav-item my-1">
+              {/* <li className="nav-item my-1">
                 <NavLink
                   className="nav-link text-white fs-5"
                   to="/repayment"
@@ -105,7 +105,7 @@ const Navbar = () => {
                   <i className="bi bi-receipt"></i>
                   <span className="ms-3">Bill Payment</span>
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="dropdown open">

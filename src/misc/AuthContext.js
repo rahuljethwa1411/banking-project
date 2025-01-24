@@ -33,8 +33,8 @@ function AuthProvider({ children }) {
 
   // Log out the user
   const userLogout = () => {
-    localStorage.removeItem('user'); // Clear user data
-    localStorage.removeItem('token'); // Clear token
+    localStorage.removeItem("user"); // Clear user data
+    localStorage.removeItem("token"); // Clear token
     setUser(null); // Reset the user state
   };
 
