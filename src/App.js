@@ -7,7 +7,7 @@ import WithdrawDeposit from "./pages/WithdrawDeposit";
 import TransferPage from "./pages/TransferPage";
 import ApplicationPage from './pages/ApplicationPage';
 import BaseLayout from "./components/BaseLayout";
-import AdminDashboard from "./pages/AdminDashboard"; // Import the AdminDashboard component
+import AdminDashboard from "./pages/AdminDashboard";
 import { AuthProvider } from "./misc/AuthContext";
 import { Toaster } from "react-hot-toast";
 
@@ -26,7 +26,6 @@ function App() {
               <Route path="/withdraw-deposit" element={<WithdrawDeposit />} />
               <Route path="/transfer" element={<TransferPage />} />
               <Route path="/application" element={<ApplicationPage />} />
-              {/* Add the AdminDashboard route */}
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
             </Route>
           </Routes>
