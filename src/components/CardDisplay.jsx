@@ -35,7 +35,7 @@ const CardDisplay = ({ firstName, lastName, accountNumber, balance }) => {
               {firstName} {lastName}
             </h5>
             <h5>
-              {balanceVisible ? `Balance: $${balance}` : "Balance: ******"}
+              {balanceVisible ? `Balance: ${balance}` : "Balance: ******"}
             </h5>
           </div>
         </div>

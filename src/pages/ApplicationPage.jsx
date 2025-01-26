@@ -85,7 +85,7 @@ const Application = () => {
     };
 
     // Check if the user is an admin
-    const isAdmin = userDb && userDb.role === "admin";
+    const isAdmin = userDb && userDb.role === "ADMIN";
 
     // Redirect or hide the form if the user is an admin
     if (isAdmin) {

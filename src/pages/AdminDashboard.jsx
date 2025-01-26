@@ -54,13 +54,13 @@ const AdminDashboard = () => {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Card Number</th>
-              <th>Type</th>
-              <th>Credit Limit</th>
-              <th>Available Credit</th>
-              <th>Issue Date</th>
-              <th>Actions</th>
+              <th>ID </th>
+              <th>Card Number </th>
+              <th>Type </th>
+              <th>Credit Limit </th>
+              <th>Available Credit </th>
+              <th>Issue Date </th>
+              <th>Actions </th>
             </tr>
           </thead>
           <tbody>
@@ -83,7 +83,7 @@ const AdminDashboard = () => {
                     onClick={() => handleUpdateStatus(card.id, "REJECTED")}
                     style={{ backgroundColor: "red", color: "white" }}
                   >
-                    Reject
+                     Reject
                   </button>
                 </td>
               </tr>

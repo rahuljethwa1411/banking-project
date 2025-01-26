@@ -58,7 +58,7 @@ const Navbar = () => {
               to="/home"
               activeclassname="active"
             >
-              <span className="ms-1 fs-4">CreditConnect</span>
+              <span className="ms-1 fs-4">Bank Connect</span>
             </NavLink>
 
             <hr className="text-secondary" />
