@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Navigate } from "react-router-dom";
+import React, { useState } from 'react';
 
 import { useAuth } from '../misc/AuthContext';
 import { bankingApi } from '../misc/BankingApi';
@@ -8,8 +7,6 @@ import { handleLogError } from '../misc/Helpers';
 const Application = () => {
     const Auth = useAuth();
     const user = Auth.getUser();
-    const isLoggedIn = Auth.userIsAuthenticated();
-    const [userDb, setUserDb] = useState(null);
 
     const [annualSalary, setAnnualSalary] = useState('');
     const [cardType, setCardType] = useState('');
@@ -66,33 +63,33 @@ const Application = () => {
         }
     };
 
-    useEffect(() => {
-        loadUserDb();
-    }, []);
+    // useEffect(() => {
+    //     loadUserDb();
+    // }, []);
 
-    const loadUserDb = async () => {
-        try {
-            const response = await bankingApi.getUser(user)
-            // console.log(response.data)
-            setUserDb(response.data)
-        } catch (error) {
-            handleLogError(error);
-        }
-    };
+    // const loadUserDb = async () => {
+    //     try {
+    //         const response = await bankingApi.getUser(user)
+    //         // console.log(response.data)
+    //         setUserDb(response.data)
+    //     } catch (error) {
+    //         handleLogError(error);
+    //     }
+    // };
 
-    if (!isLoggedIn) {
-        return <Navigate to='/home' />
-    };
+    // if (!isLoggedIn) {
+    //     return <Navigate to='/home' />
+    // };
 
-    // Check if the user is an admin
-    const isAdmin = userDb && userDb.role === "ADMIN";
+    // // Check if the user is an admin
+    // const isAdmin = userDb && userDb.role === "ADMIN";
 
-    // Redirect or hide the form if the user is an admin
-    if (isAdmin) {
-        return <Navigate to='/admin-dashboard' />; // Redirect to admin dashboard or another appropriate page
-    }
+    // // Redirect or hide the form if the user is an admin
+    // if (isAdmin) {
+    //     return <Navigate to='/admin-dashboard' />; // Redirect to admin dashboard or another appropriate page
+    // }
 
-    return (userDb &&
+    return (
         <div className="Application-Page">
             <div className='top'>
                 <h1>Credit Card Application</h1>

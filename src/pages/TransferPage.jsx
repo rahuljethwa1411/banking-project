@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../misc/AuthContext";
 import { bankingApi } from "../misc/BankingApi";
 import { handleLogError } from "../misc/Helpers";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const TransferPage = () => {
   const Auth = useAuth();
   const user = Auth.getUser();
-  const isLoggedIn = Auth.userIsAuthenticated();
+  // const isLoggedIn = Auth.userIsAuthenticated();
   const [userDb, setUserDb] = useState(null);
 
   const [accountNumber, setAccountNumber] = useState("");
@@ -31,9 +31,9 @@ const TransferPage = () => {
     }
   };
 
-  if (!isLoggedIn) {
-    return <Navigate to="/login" />;
-  }
+  // if (!isLoggedIn) {
+  //   return <Navigate to="/login" />;
+  // }
 
   const handleTransfer = async (event) => {
     event.preventDefault();
@@ -77,7 +77,7 @@ const TransferPage = () => {
   return (
     userDb && (
       <div className="transfer-page">
-        <div className="top">
+        <div className="top text-center">
           <h1>Transfer</h1>
         </div>
 
